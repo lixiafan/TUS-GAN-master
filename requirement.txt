@@ -1,0 +1,258 @@
+依赖的python库，打 √ 的需要自行安装
+Package              Version
+-------------------- ---------
+absl-py              0.15.0
+astor                0.8.1
+bleach               1.5.0
+cached-property      1.5.2
+certifi              2021.5.30
+chardet              3.0.4
+charset-normalizer   2.0.10
+cloudpickle          2.0.0
+coverage             5.5
+cycler               0.11.0
+dataclasses          0.8
+decorator            4.4.2
+easydict             1.9                √
+gast                 0.5.3
+google-pasta         0.2.0
+grpcio               1.36.1
+h5py                 2.10.0
+html5lib             0.9999999
+idna                 2.7
+imageio              2.3.0
+importlib-metadata   4.8.1
+joblib               1.1.0
+Keras                2.3.1
+Keras-Applications   1.0.8
+Keras-Preprocessing  1.1.2
+kiwisolver           1.3.1
+lxml                 4.2.6
+Markdown             3.3.4
+matplotlib           2.2.5
+mkl-fft              1.3.0
+mkl-random           1.1.1
+mkl-service          2.3.0
+mock                 4.0.3
+networkx             2.5.1
+numpy                1.15.4
+olefile              0.46
+opencv-python        4.5.5.62
+opt-einsum           3.3.0
+Pillow               8.4.0
+pip                  21.2.2
+progressbar2         3.38.0
+protobuf             3.17.2
+pyparsing            3.0.6
+pyreadline           2.1
+python-dateutil      2.8.2
+python-utils         3.0.0
+pytz                 2021.3
+PyWavelets           1.1.1
+PyYAML               5.4.1
+requests             2.19.1
+scikit-image         0.14.5
+scikit-learn         0.19.2
+scipy                1.1.0
+setuptools           58.0.4
+six                  1.16.0
+tensorboard          1.8.0
+tensorflow           1.8.0              √
+tensorflow-estimator 1.15.1
+tensorlayer          1.10.1rc0          √
+termcolor            1.1.0
+threadpoolctl        3.0.0
+tifffile             2020.9.3
+tqdm                 4.25.0             √
+typing-extensions    3.10.0.2
+urllib3              1.23
+Werkzeug             2.0.2
+wheel                0.37.1
+wincertstore         0.2
+wrapt                1.10.11
+zipp                 3.6.0
+opencv-python        4.5.5.62           √
+
+
+
+
+打包成.exe的命令：
+在windows命令行进入BUS-GAN-master环境:
+(BUS-GAN-master) F:\BUS-GAN-master>pyinstaller -F -w -i         SEGMENT_SYSTEM.ico System_Login.py
+
+打包python文件成可执行文件:
+pyinstaller -F -w -i 	SEGMENT_SYSTEM.ico System_Login.py
+
+执行以上命令之后产生新的文件：
+build ,dist, System_Login.spec
+
+
+在网页通过tensorboard显示损失函数的训练过程图像：
+前提是把events文件保存到log/log_gan目录下
+打开Anaconda Prompt,先cd切换目录
+(base) C:\Users\19937>cd C:\Users\19937\AppData\Local\conda\conda\envs\tensorflow\Scripts
+再激活环境
+(base) C:\Users\19937\AppData\Local\conda\conda\envs\tensorflow\Scripts>activate tensorflow
+输入命令tensorboard --logdir="logs/log_gan"
+(tensorflow) C:\Users\19937\AppData\Local\conda\conda\envs\tensorflow\Scripts>tensorboard --logdir="logs/log_gan"
+Serving TensorBoard on localhost; to expose to the network, use a proxy or pass --bind_all
+TensorBoard 2.0.0 at http://localhost:6006/ (Press CTRL+C to quit)
+最后打开网址查看图像
+
+
+
+
+中间结果输出查看记录：
+print('原始图像：  ',img_feed)
+[[[[-0.99215686]
+   [-0.98431373]
+   [-0.97647059]
+   ...
+   [-0.98431373]
+   [-0.98431373]
+   [-0.99215686]]
+
+  [[-0.97647059]
+   [-1.        ]
+   [-0.95294118]
+   ...
+   [-1.        ]
+   [-1.        ]
+   [-1.        ]]
+
+  [[-1.        ]
+   [-0.41176471]
+   [-0.95294118]
+   ...
+   [-0.98431373]
+   [-0.97647059]
+   [-0.99215686]]
+
+  ...
+
+  [[-0.97647059]
+   [-0.89019608]
+   [-0.80392157]
+   ...
+   [-0.82745098]
+   [-0.83529412]
+   [-0.95294118]]
+
+  [[-0.96862745]
+   [-0.86666667]
+   [-0.80392157]
+   ...
+   [-0.80392157]
+   [-0.81960784]
+   [-0.95294118]]
+
+  [[-0.96862745]
+   [-0.96078431]
+   [-0.97647059]
+   ...
+   [-0.96862745]
+   [-0.96862745]
+   [-0.98431373]]]]
+
+print('分割图像：  ',seg_feed)
+ [[[[False]
+   [False]
+   [False]
+   ...
+   [False]
+   [False]
+   [False]]
+
+  [[False]
+   [False]
+   [False]
+   ...
+   [False]
+   [False]
+   [False]]
+
+  [[False]
+   [False]
+   [False]
+   ...
+   [False]
+   [False]
+   [False]]
+
+  ...
+
+  [[False]
+   [False]
+   [False]
+   ...
+   [False]
+   [False]
+   [False]]
+
+  [[False]
+   [False]
+   [False]
+   ...
+   [False]
+   [False]
+   [False]]
+
+  [[False]
+   [False]
+   [False]
+   ...
+   [False]
+   [False]
+   [False]]]]
+
+
+print('输出：   ',_out)
+ [[[[-5.1290236]
+   [-5.1559434]
+   [-5.182863 ]
+   ...
+   [-5.485613 ]
+   [-5.485613 ]
+   [-5.485613 ]]
+
+  [[-5.1284003]
+   [-5.1591034]
+   [-5.1898065]
+   ...
+   [-5.4217706]
+   [-5.4217706]
+   [-5.4217706]]
+
+  [[-5.127777 ]
+   [-5.1622634]
+   [-5.1967497]
+   ...
+   [-5.3579283]
+   [-5.3579283]
+   [-5.3579283]]
+
+  ...
+
+  [[-4.960454 ]
+   [-4.9560037]
+   [-4.9515533]
+   ...
+   [-4.579949 ]
+   [-4.579949 ]
+   [-4.579949 ]]
+
+  [[-4.960454 ]
+   [-4.9560037]
+   [-4.9515533]
+   ...
+   [-4.579949 ]
+   [-4.579949 ]
+   [-4.579949 ]]
+
+  [[-4.960454 ]
+   [-4.9560037]
+   [-4.9515533]
+   ...
+   [-4.579949 ]
+   [-4.579949 ]
+   [-4.579949 ]]]]
